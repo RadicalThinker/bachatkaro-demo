@@ -28,7 +28,7 @@ export default function Expense() {
                                     <div className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200">
                                         <h3 className="text-lg font-semibold text-gray-700">{subcategory}</h3>
                                         <div className="mt-2 flex justify-between items-center">
-                                            <span className="text-red-600 font-medium">${total.toFixed(2)}</span>
+                                            <span className="text-red-600 font-medium">₹{total.toFixed(2)}</span>
                                             {budget > 0 && (
                                                 <span className={`text-sm ${percentage > 100 ? 'text-red-500' : 'text-green-500'}`}>
                                                     {percentage.toFixed(0)}%
@@ -37,7 +37,7 @@ export default function Expense() {
                                         </div>
                                         {budget > 0 && (
                                             <div className="mt-2 text-sm text-gray-600">
-                                                Budget: ${budget.toFixed(2)}
+                                                Budget: ₹{budget.toFixed(2)}
                                             </div>
                                         )}
                                         <div className="mt-2 text-sm text-blue-500">
@@ -54,7 +54,7 @@ export default function Expense() {
                                             .map(transaction => (
                                                 <div key={transaction.id} className="flex justify-between items-center py-2 border-b border-gray-200 last:border-b-0">
                                                     <span className="text-gray-800">{transaction.description}</span>
-                                                    <span className="text-red-600">${transaction.amount.toFixed(2)}</span>
+                                                    <span className="text-red-600">₹{transaction.amount.toFixed(2)}</span>
                                                 </div>
                                             ))
                                         }

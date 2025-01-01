@@ -34,20 +34,20 @@ export default function Budget() {
         <div className="grid grid-cols-2 gap-4">
           <div>
             <p className="text-sm text-gray-600">Total Budget</p>
-            <p className="text-lg font-medium text-blue-600">${overallBudget.toFixed(2)}</p>
+            <p className="text-lg font-medium text-blue-600">₹{overallBudget.toFixed(2)}</p>
           </div>
           <div>
             <p className="text-sm text-gray-600">Total Expenses</p>
-            <p className="text-lg font-medium text-red-600">${totalExpenses.toFixed(2)}</p>
+            <p className="text-lg font-medium text-red-600">₹{totalExpenses.toFixed(2)}</p>
           </div>
           <div>
             <p className="text-sm text-gray-600">Remaining</p>
-            <p className="text-lg font-medium text-green-600">${calculateRemainingBudget(totalExpenses, overallBudget)}</p>
+            <p className="text-lg font-medium text-green-600">₹{calculateRemainingBudget(totalExpenses, overallBudget)}</p>
           </div>
           <div>
             <p className="text-sm text-gray-600">Daily Recommendation</p>
             <p className="text-lg font-medium text-purple-600">
-              ${calculateDailyLimit(overallBudget, totalExpenses)}
+              ₹{calculateDailyLimit(overallBudget, totalExpenses)}
             </p>
           </div>
         </div>
@@ -68,19 +68,19 @@ export default function Budget() {
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <p className="text-sm text-gray-600">Budget</p>
-                    <p className="text-md font-medium text-blue-600">${budget.toFixed(2)}</p>
+                    <p className="text-md font-medium text-blue-600">₹{budget.toFixed(2)}</p>
                   </div>
                   <div>
                     <p className="text-sm text-gray-600">Spent</p>
-                    <p className="text-md font-medium text-red-600">${total.toFixed(2)}</p>
+                    <p className="text-md font-medium text-red-600">₹{total.toFixed(2)}</p>
                   </div>
                   <div>
                     <p className="text-sm text-gray-600">Remaining</p>
-                    <p className="text-md font-medium text-green-600">${remaining}</p>
+                    <p className="text-md font-medium text-green-600">₹{remaining}</p>
                   </div>
                   <div>
                     <p className="text-sm text-gray-600">Daily Recommendation</p>
-                    <p className="text-md font-medium text-purple-600">${dailyRecommendation}</p>
+                    <p className="text-md font-medium text-purple-600">₹{dailyRecommendation}</p>
                   </div>
                 </div>
                 <div className="mt-2">
@@ -111,7 +111,7 @@ export default function Budget() {
                 <h4 className="text-lg font-medium text-gray-800 mb-2">{subcategory}</h4>
                 <div>
                   <p className="text-sm text-gray-600">Total Income</p>
-                  <p className="text-md font-medium text-green-600">${total.toFixed(2)}</p>
+                  <p className="text-md font-medium text-green-600">₹{total.toFixed(2)}</p>
                 </div>
               </div>
             );

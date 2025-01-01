@@ -81,7 +81,7 @@ export default function BudgetTracker() {
       <h1 className="text-4xl font-bold text-center mb-8 text-gray-800">Budget Tracker</h1>
       <div className="bg-white shadow-lg rounded-lg p-6 mb-8">
         <div className="text-3xl font-semibold text-center mb-6 text-gray-700">
-          Balance: <span className={balance >= 0 ? "text-green-600" : "text-red-600"}>${balance.toFixed(2)}</span>
+          Balance: <span className={balance >= 0 ? "text-green-600" : "text-red-600"}>₹{balance.toFixed(2)}</span>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="space-y-6">
@@ -244,7 +244,7 @@ export default function BudgetTracker() {
                   {subcategories.income.map((sub) => (
                     <div key={sub} className="flex justify-between mb-2 p-2 bg-gray-50 rounded">
                       <span className="font-medium">{sub}</span>
-                      <span className="text-green-600">${(subcategoryTotals[`income-${sub}`] || 0).toFixed(2)}</span>
+                      <span className="text-green-600">₹{(subcategoryTotals[`income-${sub}`] || 0).toFixed(2)}</span>
                     </div>
                   ))}
                 </div>
@@ -258,10 +258,10 @@ export default function BudgetTracker() {
                       <div key={sub} className="mb-2 p-2 bg-gray-50 rounded">
                         <div className="flex justify-between">
                           <span className="font-medium">{sub}</span>
-                          <span className="text-red-600">${total.toFixed(2)}</span>
+                          <span className="text-red-600">₹{total.toFixed(2)}</span>
                         </div>
                         <div className="flex justify-between text-sm">
-                          <span className="text-gray-600">Budget: ${budget.toFixed(2)}</span>
+                          <span className="text-gray-600">Budget: ₹{budget.toFixed(2)}</span>
                           {budget > 0 && (
                             <span className={total > budget ? 'text-red-500' : 'text-green-500'}>
                               ({((total / budget) * 100).toFixed(0)}%)
@@ -270,7 +270,7 @@ export default function BudgetTracker() {
                         </div>
                         {budget > 0 && (
                           <div className="text-sm text-blue-500 text-right">
-                            ${calculateDailyLimit(budget, total)}/day remaining
+                            ₹{calculateDailyLimit(budget, total)}/day remaining
                           </div>
                         )}
                       </div>
@@ -284,13 +284,13 @@ export default function BudgetTracker() {
               <div className="space-y-2">
                 <div className="flex justify-between">
                   <span className="font-medium">Total Expenses:</span>
-                  <span className="text-red-600">${totalExpenses.toFixed(2)}</span>
+                  <span className="text-red-600">₹{totalExpenses.toFixed(2)}</span>
                 </div>
                 {overallBudget > 0 && (
                   <>
                     <div className="flex justify-between">
                       <span className="font-medium">Budget:</span>
-                      <span className="text-blue-600">${overallBudget.toFixed(2)}</span>
+                      <span className="text-blue-600">₹{overallBudget.toFixed(2)}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="font-medium">Percentage Used:</span>
@@ -300,7 +300,7 @@ export default function BudgetTracker() {
                     </div>
                     <div className="flex justify-between">
                       <span className="font-medium">Daily Spending Limit:</span>
-                      <span className="text-blue-600">${calculateDailyLimit(overallBudget, totalExpenses)}</span>
+                      <span className="text-blue-600">₹{calculateDailyLimit(overallBudget, totalExpenses)}</span>
                     </div>
                   </>
                 )}
@@ -325,7 +325,7 @@ export default function BudgetTracker() {
                 <div className="text-xs text-gray-500">{transaction.date}</div>
               </div>
               <span className={transaction.type === 'income' ? 'text-green-600' : 'text-red-600'}>
-                {transaction.type === 'income' ? '+' : '-'}${transaction.amount.toFixed(2)}
+                {transaction.type === 'income' ? '+' : '-'}₹{transaction.amount.toFixed(2)}
               </span>
             </div>
           ))}

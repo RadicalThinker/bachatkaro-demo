@@ -26,7 +26,7 @@ export default function Income() {
                 <div className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200">
                   <h3 className="text-lg font-semibold text-gray-700">{subcategory}</h3>
                   <div className="mt-2 flex justify-between items-center">
-                    <span className="text-green-600 font-medium">${total.toFixed(2)}</span>
+                    <span className="text-green-600 font-medium">₹{total.toFixed(2)}</span>
                   </div>
                   <div className="mt-2 text-sm text-blue-500">
                     Click for details
@@ -42,7 +42,7 @@ export default function Income() {
                     .map(transaction => (
                       <div key={transaction.id} className="flex justify-between items-center py-2 border-b border-gray-200 last:border-b-0">
                         <span className="text-gray-800">{transaction.description}</span>
-                        <span className="text-green-600">${transaction.amount.toFixed(2)}</span>
+                        <span className="text-green-600">₹{transaction.amount.toFixed(2)}</span>
                       </div>
                     ))
                   }
