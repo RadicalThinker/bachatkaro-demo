@@ -1,6 +1,6 @@
 import React from 'react';
 import { useBudgetContext } from '../context/BudgetProvider';
-
+import '../App.css';
 export default function Budget() {
   const {
     subcategories,
@@ -26,7 +26,7 @@ export default function Budget() {
 
   return (
     (currentpage === 'budget') && (
-        <div className="space-y-6">
+        <div className="space-y-6 bg">
       <h2 className="text-2xl font-semibold text-gray-800">Detailed Budget Overview</h2>
       
       <div className="bg-white p-6 rounded-lg shadow-md">

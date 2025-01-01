@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useBudgetContext } from '../context/BudgetProvider';
-
+import '../App.css';
 export default function BudgetTracker() {
   const {
     transactions,
@@ -77,19 +77,20 @@ export default function BudgetTracker() {
 
   return (
     (currentpage === 'tracker') && (
-        <div className="container mx-auto p-4 max-w-4xl">
+      <div className='bg'>
+        <div className="container mx-auto p-4 max-w-5xl">
       <h1 className="text-4xl font-bold text-center mb-8 text-gray-800">Budget Tracker</h1>
-      <div className="bg-white shadow-lg rounded-lg p-6 mb-8">
+      <div className="bg-white shadow-lg rounded-lg p-6 mb-8 backdrop-filter backdrop-blur bg-opacity-5">
         <div className="text-3xl font-semibold text-center mb-6 text-gray-700">
           Balance: <span className={balance >= 0 ? "text-green-600" : "text-red-600"}>₹{balance.toFixed(2)}</span>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="space-y-6">
-            <form onSubmit={handleAddTransaction} className="bg-gray-50 p-4 rounded-md shadow">
-              <h2 className="text-xl font-semibold mb-4 text-gray-700">Add Transaction</h2>
+            <form onSubmit={handleAddTransaction} className="bg-green-300 p-4 rounded-md shadow backdrop-filter backdrop-blur bg-opacity-30">
+              <h2 className="text-xl font-semibold mb-4">Add Transaction</h2>
               <div className="space-y-4">
                 <div>
-                  <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-1">Description:</label>
+                  <label htmlFor="description" className="block text-sm font-medium mb-1">Description:</label>
                   <input
                     id="description"
                     type="text"
@@ -101,7 +102,7 @@ export default function BudgetTracker() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="amount" className="block text-sm font-medium text-gray-700 mb-1">Amount:</label>
+                  <label htmlFor="amount" className="block text-sm font-medium mb-1">Amount:</label>
                   <input
                     id="amount"
                     type="number"
@@ -139,7 +140,7 @@ export default function BudgetTracker() {
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="subcategory" className="block text-sm font-medium text-gray-700 mb-1">Subcategory:</label>
+                  <label htmlFor="subcategory" className="block text-sm font-medium  mb-1">Subcategory:</label>
                   <select
                     id="subcategory"
                     value={subcategory}
@@ -156,7 +157,7 @@ export default function BudgetTracker() {
                 </div>
                 {isAddingNewSubcategory && (
                   <div>
-                    <label htmlFor="newSubcategory" className="block text-sm font-medium text-gray-700 mb-1">New Subcategory:</label>
+                    <label htmlFor="newSubcategory" className="block text-sm font-medium text-gray-900 mb-1">New Subcategory:</label>
                     <div className="flex">
                       <input
                         id="newSubcategory"
@@ -181,11 +182,11 @@ export default function BudgetTracker() {
                 Add Transaction
               </button>
             </form>
-            <form onSubmit={handleSetBudget} className="bg-gray-50 p-4 rounded-md shadow">
-              <h2 className="text-xl font-semibold mb-4 text-gray-700">Set Budget</h2>
+            <form onSubmit={handleSetBudget} className="bg-orange-300 p-4 rounded-md shadow backdrop-filter backdrop-blur bg-opacity-30">
+              <h2 className="text-xl font-semibold mb-4 ">Set Budget</h2>
               <div className="space-y-4">
                 <div>
-                  <label htmlFor="budgetSubcategory" className="block text-sm font-medium text-gray-700 mb-1">Set Budget For:</label>
+                  <label htmlFor="budgetSubcategory" className="block text-sm font-medium  mb-1">Set Budget For:</label>
                   <select
                     id="budgetSubcategory"
                     value={selectedBudgetSubcategory}
@@ -201,7 +202,7 @@ export default function BudgetTracker() {
                   </select>
                 </div>
                 <div>
-                  <label htmlFor="budgetAmount" className="block text-sm font-medium text-gray-700 mb-1">Budget Amount:</label>
+                  <label htmlFor="budgetAmount" className="block text-sm font-medium  mb-1">Budget Amount:</label>
                   <input
                     id="budgetAmount"
                     type="number"
@@ -219,10 +220,10 @@ export default function BudgetTracker() {
                 Set Budget
               </button>
             </form>
-            <div className="bg-gray-50 p-4 rounded-md shadow">
-              <h2 className="text-xl font-semibold mb-4 text-gray-700">Days in Month</h2>
+            <div className="bg-gray-50 p-4 rounded-md shadow backdrop-filter backdrop-blur bg-opacity-30">
+              <h2 className="text-xl font-semibold mb-4 ">Days in Month</h2>
               <div>
-                <label htmlFor="daysInMonth" className="block text-sm font-medium text-gray-700 mb-1">Number of Days:</label>
+                <label htmlFor="daysInMonth" className="block text-sm font-medium  mb-1">Number of Days:</label>
                 <input
                   id="daysInMonth"
                   type="number"
@@ -236,26 +237,26 @@ export default function BudgetTracker() {
             </div>
           </div>
           <div className="space-y-6">
-            <div className="bg-white p-4 rounded-md shadow">
-              <h2 className="text-xl font-semibold mb-4 text-gray-700">Subcategory Details</h2>
+            <div className="bg-white p-4 rounded-md shadow backdrop-filter backdrop-blur bg-opacity-30">
+              <h2 className="text-xl font-semibold mb-4 ">Subcategory Details</h2>
               <div className="space-y-4">
                 <div>
-                  <h3 className="text-lg font-semibold mb-2 text-gray-700">Income Subcategories</h3>
+                  <h3 className="text-lg font-semibold mb-2 ">Income Subcategories</h3>
                   {subcategories.income.map((sub) => (
-                    <div key={sub} className="flex justify-between mb-2 p-2 bg-gray-50 rounded">
+                    <div key={sub} className="flex justify-between mb-2 p-2 bg-green-300 rounded backdrop-filter backdrop-blur bg-opacity-30">
                       <span className="font-medium">{sub}</span>
                       <span className="text-green-600">₹{(subcategoryTotals[`income-${sub}`] || 0).toFixed(2)}</span>
                     </div>
                   ))}
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold mb-2 text-gray-700">Expense Subcategories</h3>
+                  <h3 className="text-lg font-semibold mb-2 ">Expense Subcategories</h3>
                   {subcategories.expense.map((sub) => {
                     const total = subcategoryTotals[`expense-${sub}`] || 0;
                     const budget = 
                       subcategoryBudgets[`expense-${sub}`] || 0;
                     return (
-                      <div key={sub} className="mb-2 p-2 bg-gray-50 rounded">
+                      <div key={sub} className="mb-2 p-2 bg-red-300 rounded backdrop-filter backdrop-blur bg-opacity-30">
                         <div className="flex justify-between">
                           <span className="font-medium">{sub}</span>
                           <span className="text-red-600">₹{total.toFixed(2)}</span>
@@ -279,8 +280,8 @@ export default function BudgetTracker() {
                 </div>
               </div>
             </div>
-            <div className="bg-white p-4 rounded-md shadow">
-              <h2 className="text-xl font-semibold mb-4 text-gray-700">Overall Budget</h2>
+            <div className="bg-white p-4 rounded-md shadow backdrop-filter backdrop-blur bg-opacity-30">
+              <h2 className="text-xl font-semibold mb-4 ">Overall Budget</h2>
               <div className="space-y-2">
                 <div className="flex justify-between">
                   <span className="font-medium">Total Expenses:</span>
@@ -309,14 +310,14 @@ export default function BudgetTracker() {
           </div>
         </div>
       </div>
-      <div className="bg-white shadow-lg rounded-lg p-6">
-        <h2 className="text-2xl font-semibold mb-4 text-gray-800">Recent Transactions</h2>
+      <div className="bg-white shadow-lg rounded-lg p-6 backdrop-filter backdrop-blur bg-opacity-60">
+        <h2 className="text-2xl font-semibold mb-4 ">Recent Transactions</h2>
         <div className="space-y-2">
           {transactions.slice(-5).reverse().map((transaction) => (
             <div
               key={transaction.id}
               className={`flex justify-between p-3 rounded ${
-                transaction.type === 'income' ? 'bg-green-100' : 'bg-red-100'
+                transaction.type === 'income' ? 'bg-green-300' : 'bg-red-300'
               }`}
             >
               <div>
@@ -331,6 +332,7 @@ export default function BudgetTracker() {
           ))}
         </div>
       </div>
+    </div>
     </div>
   ));
 }
